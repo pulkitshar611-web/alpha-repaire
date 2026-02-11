@@ -31,7 +31,14 @@ if (cluster.isPrimary) {
 
   dbConnect();
 
-  app.use(cors({origin: "*"}));
+app.use(
+  cors({
+    origin: ["https://alphaphonerepairs.com.au"],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
+
   
   app.use(morgan("tiny"));
   app.use(bodyParser.json({ limit: "50mb" }));
